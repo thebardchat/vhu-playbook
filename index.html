@@ -138,6 +138,12 @@
   .field-label{display:block;font-weight:700;margin:.5rem 0 .2rem}
   textarea{display:block;width:100%;min-height:11rem;resize:vertical;background:var(--panel);border:1px solid var(--line);color:var(--text);padding:.75rem;border-radius:.55rem;font:inherit}
   #mailCopyStatus{margin-left:.45rem}
+ 
+  .farm-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start;gap:1rem}
+  .farm-art{min-width:0;margin:0}.farm-art svg{display:block;width:100%;height:auto}
+  .farm-art figcaption{margin-top:.45rem}
+  .farm-layout .rule{margin-top:0}
+  @media(max-width:46rem){.farm-layout{grid-template-columns:minmax(0,1fr)}}
 </style>
 </head>
 <body>
@@ -166,6 +172,7 @@
 
 <nav aria-label="Playbook sections">
   <a href="#rule">Rule</a>
+  <a href="#farming-rules">Farming Rules</a>
   <a href="#new-player">Start</a>
   <a href="#field-guide">Field Guide</a>
   <a class="fast-link" href="#season-two">Season 2</a>
@@ -193,6 +200,43 @@
     <li>If they do not farm others, leave them alone.</li>
     <li>If they farm, they are fair game. Expect them to come back at us.</li>
   </ul>
+</section>
+
+<section id="farming-rules">
+  <p class="eyebrow">VHU alliance policy • review draft</p>
+  <h2>Farming Rules</h2>
+  <p><strong>Farming</strong> means attacking another player’s in-game headquarters to take resources. A <strong>hive</strong> is a cluster of headquarters where members of an alliance stay together.</p>
+  <div class="farm-layout">
+    <figure class="farm-art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 430" role="img" aria-labelledby="hive-art-title hive-art-desc">
+<title id="hive-art-title">Three VHU members per hive at a time</title><desc id="hive-art-desc">Three numbered VHU member markers point toward an alliance hive. The hive contains five example headquarters. The member limit is not a limit on the number of headquarters in a hive.</desc>
+<defs>
+  <pattern id="hive-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#6b4248" stroke-opacity=".35"/></pattern>
+  <g id="hive-hq"><path d="M-30 26v-49L0-40l30 17v49z" fill="#351d26" stroke="#f3a58b" stroke-width="2.4"/><path d="M-38-18 0-46l38 28M-15 4h13v13h-13zM7 26V-1h13v27" fill="none" stroke="#f3a58b" stroke-width="2.4"/></g>
+  <marker id="hive-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0l10 5-10 5z" fill="#c88372"/></marker>
+</defs>
+<rect x="1" y="1" width="598" height="428" rx="18" fill="#18131a" stroke="#895661" stroke-width="2"/>
+<rect x="9" y="9" width="582" height="412" rx="12" fill="url(#hive-grid)"/>
+<text x="32" y="45" fill="#f9cc89" font-size="19" letter-spacing="2" font-family="monospace" font-weight="bold">VHU FIELD DIAGRAM</text>
+<rect x="219" y="69" width="341" height="267" rx="25" fill="#23171e" stroke="#ad6971" stroke-width="2" stroke-dasharray="9 7"/>
+<text x="243" y="103" fill="#f6bd9f" font-size="18" font-family="monospace" font-weight="bold">ALLIANCE HIVE</text>
+<g fill="none" stroke="#c88372" stroke-width="2.5" marker-end="url(#hive-arrow)"><path d="M105 144h84"/><path d="M105 209h84"/><path d="M105 274h84"/></g>
+<g fill="#4b292f" stroke="#f9cc89" stroke-width="2.5"><circle cx="77" cy="144" r="23"/><circle cx="77" cy="209" r="23"/><circle cx="77" cy="274" r="23"/></g>
+<g fill="#ffe3b5" font-family="sans-serif" font-size="23" font-weight="bold" text-anchor="middle"><text x="77" y="152">1</text><text x="77" y="217">2</text><text x="77" y="282">3</text></g>
+<use href="#hive-hq" x="287" y="169"/><use href="#hive-hq" x="389" y="169"/><use href="#hive-hq" x="491" y="169"/><use href="#hive-hq" x="336" y="266"/><use href="#hive-hq" x="444" y="266"/>
+<text x="32" y="378" fill="#ffe3b5" font-size="24" font-family="sans-serif" font-weight="bold">3 VHU members at a time</text>
+<text x="33" y="405" fill="#e4b8bd" font-size="16" font-family="sans-serif">All numbered markers represent VHU members.</text>
+</svg><figcaption class="note">The three-person limit counts VHU members farming the same hive at the same time.</figcaption></figure>
+    <div>
+      <p class="rule">At most three VHU members may farm the same hive at a time.</p>
+      <ul>
+        <li>Do not zero a target’s headquarters.</li>
+        <li>Do not farm active players outside an alliance unless they farm.</li>
+        <li>Leave non-farming players alone.</li>
+        <li>If you see an alliance farming and it is not on the in-game alliance list, notify an R4 or the R5 for review.</li>
+      </ul>
+      <p class="note"><span class="test">PENDING</span> The full target-eligibility rule still needs R4 or R5 confirmation. If you’re unsure a target is eligible, hold and ask. Do not post the target list here.</p>
+    </div>
+  </div>
 </section>
 
 <section id="new-player">
