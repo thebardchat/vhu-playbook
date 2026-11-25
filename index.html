@@ -231,7 +231,7 @@
     <article><span class="step" aria-hidden="true">02</span><h3>Volcano War</h3><p>Check if the event is available on your state, then verify entry requirements, battle window, rewards, and zone restrictions. Assign an objective and a backup before you send anyone in.</p><a href="#volcano">See the Volcano War brief</a></article>
     <article><span class="step" aria-hidden="true">03</span><h3>Post one clear brief</h3><p>Include the exact event name, start time in the game’s clock, countdown, caller, and one objective. Recheck the countdown just before launch. Don’t use a fixed local-time conversion copied from a previous event.</p></article>
   </div>
-  <details class="sources"><summary>Game sources and what still needs a check</summary><p>The publisher’s public material confirms the game and its emphasis on alliances, base growth, technology and military progression. It doesn’t establish the current build, event schedule or rewards for State 788. Use the in-game rules for variable details and keep VHU rules separate.</p><ul><li><a href="https://last-z.com/">Official Last Z news</a></li><li><a href="https://play.google.com/store/apps/details?hl=en-US&amp;id=com.readygo.barrel.gphh">Developer-provided game overview on Google Play</a></li></ul></details>
+  <details class="sources"><summary>Game sources and what still needs a check</summary><p>The publisher’s public material confirms the game and its emphasis on alliances, base growth, technology and military progression. It doesn’t establish the current build, event schedule or rewards for State 788. Use the in-game rules for variable details and keep VHU rules separate.</p><ul><li><a href="https://last-z.com/">Official Last Z news</a></li><li><a href="https://play.google.com/store/apps/details?hl=en_US&amp;id=com.readygo.barrel.gp">Developer-provided game overview on Google Play</a></li></ul></details>
 </section>
 
 <section id="job">
@@ -406,9 +406,22 @@
   /* Save checkbox state on this phone only */
   (function(){
     var boxes = document.querySelectorAll(".check input[type=checkbox]");
-    var KEY = "vhu-checks-v1";
+    var KEY = "vhu-checks-v2";
+    var LEGACY_KEY = "vhu-checks-v1";
     var saved = {};
-    try { saved = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){}
+    try {
+      var current = localStorage.getItem(KEY);
+      var legacy = current === null ? localStorage.getItem(LEGACY_KEY) : null;
+      var decoded = JSON.parse(current || legacy || "{}");
+      if (decoded && typeof decoded === "object" && !Array.isArray(decoded)) saved = decoded;
+      if (legacy !== null) {
+        // These two items now ask for different actions. Keep the other checks.
+        delete saved[7];
+        delete saved[12];
+        localStorage.setItem(KEY, JSON.stringify(saved));
+        localStorage.removeItem(LEGACY_KEY);
+      }
+    } catch(e){}
     boxes.forEach(function(b, i){
       b.checked = !!saved[i];
       b.addEventListener("change", function(){
@@ -419,7 +432,7 @@
     document.getElementById("resetChecks").addEventListener("click", function(){
       boxes.forEach(function(b){ b.checked = false; });
       saved = {};
-      try { localStorage.removeItem(KEY); } catch(e){}
+      try { localStorage.removeItem(LEGACY_KEY); localStorage.removeItem(KEY); } catch(e){}
     });
   })();
 </script>
