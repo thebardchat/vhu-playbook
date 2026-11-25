@@ -65,9 +65,12 @@
     padding:.35rem .72rem;border-radius:.5rem;cursor:pointer;margin-top:.6rem;font:inherit;font-size:.88rem}
   button.reset:hover{border-color:var(--accent)}
   iframe{width:100%;border:0;border-radius:.6rem;background:white;min-height:620px}
-  table{width:100%;border-collapse:collapse;font-size:.94rem}
-  th,td{padding:.45rem .55rem;border-bottom:1px solid var(--line);text-align:left}
-  th{color:var(--gold)}
+  .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:.65rem;margin:.9rem 0}
+  table{width:100%;min-width:22rem;border-collapse:collapse;font-size:.94rem}
+  th,td{padding:.6rem .75rem;border-bottom:1px solid var(--line);text-align:left}
+  th{color:var(--gold);background:var(--panel);font-size:.78rem;letter-spacing:.04em;text-transform:uppercase}
+  tbody tr:nth-child(even){background:rgba(255,255,255,.035)}
+  tbody tr:last-child td{border-bottom:0}
   footer{text-align:center;color:var(--muted);font-size:.84rem;padding:1.6rem 1rem 2.3rem;border-top:1px solid var(--line)}
   @media(max-width:30rem){
     header{padding-inline:.9rem}
@@ -441,18 +444,31 @@ If a friendly base is under attack, share the location and ETA in alliance chat.
 <section id="volcano">
   <div class="section-head"><svg class="h-icon" aria-hidden="true"><use href="#i-volcano"/></svg><h2>Volcano War</h2></div>
   <p class="rule">Don’t commit a march until the caller confirms your entry window and objective.</p>
-  <ul>
-    <li><strong>Before:</strong> Verify the battle date, game-clock start, duration, and entry rules on the active event card.</li>
-    <li><strong>During:</strong> Check the game’s rules for the zone you’re entering before using a shield or teleport. Follow the caller’s objective rather than chasing a high-value spot alone.</li>
-    <li><strong>After:</strong> Check the in-game reward conditions and report one thing the alliance should repeat or change next round.</li>
-  </ul>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Phase</th><th>What to check before you act</th></tr></thead>
+    <tbody>
+      <tr><td>Before</td><td>Verify the battle date, game-clock start, duration, and entry rules on the active event card.</td></tr>
+      <tr><td>During</td><td>Check the game’s rules for the zone you’re entering before using a shield or teleport. Follow the caller’s objective rather than chasing a high-value spot alone.</td></tr>
+      <tr><td>After</td><td>Check the in-game reward conditions and report one thing the alliance should repeat or change next round.</td></tr>
+    </tbody>
+  </table></div>
   <p class="note"><span class="test">VERIFY IN GAME</span> Exact times, thresholds, and map restrictions are not confirmed for State 788.</p>
 </section>
 
 <section id="readiness">
   <div class="section-head"><svg class="h-icon" aria-hidden="true"><use href="#i-heart"/></svg><div><p class="eyebrow">Before spending or sending</p><h2>Heroes, Resources and Shields</h2></div></div>
   <div class="guide-grid">
-    <article><h3>Heroes and formations</h3><p>Pick a team for a specific job: your first rally, defense, or general progression. Check the formation screen for faction bonuses and skill text. Change one thing at a time and compare in-game reports before spending rare materials.</p><p><span class="test">VERIFY</span> For faction counters, use the matchup information shown by the current game before a fight. Don’t assume a faction matchup outweighs every other detail in a report.</p></article>
+    <article><h3>Heroes and formations</h3><p>Pick a team for a specific job: your first rally, defense, or general progression. Check the formation screen for faction bonuses and skill text. Change one thing at a time and compare in-game reports before spending rare materials.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Faction</th><th>Beats</th></tr></thead>
+        <tbody>
+          <tr><td>Wings</td><td>Blood Rose</td></tr>
+          <tr><td>Blood Rose</td><td>Guard of Order</td></tr>
+          <tr><td>Guard of Order</td><td>Wings</td></tr>
+        </tbody>
+      </table></div>
+      <p class="note"><span class="test">VERIFY</span> Faction matchups can change with game updates. Confirm the current matchup information shown in-game before a fight. Don’t assume a faction matchup outweighs every other detail in a report.</p>
+    </article>
     <article><h3>Resources and upgrades</h3><p>Write down what your next upgrade needs. Check what you already have and what the game says is protected before opening extra packs. If you’re saving for a Duel, read the active scoring rules before committing items.</p></article>
     <article><h3>Shields and hospital space</h3><p>Before going offline or joining a fight, check the shield duration, what can end it, and current hospital space. If you can’t cover the event window or risk more wounded troops, tell the caller and take a support role if one is available.</p></article>
   </div>
