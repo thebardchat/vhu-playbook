@@ -126,6 +126,18 @@
     .check label{background:white!important;color:black;border:0;min-height:0;padding:.2rem 0}
     .check input{accent-color:black}
   }
+
+  [hidden]{display:none!important}
+  .briefing{border:1px solid #6b4147;border-radius:1rem;background:linear-gradient(150deg,#2e1721,#160f16);padding:clamp(.8rem,2vw,1.25rem)}
+  .briefing h2{color:var(--text);font-size:clamp(1.3rem,3vw,2rem)}
+  .brief-steps{list-style:none;padding:0;margin:0;display:grid;gap:.45rem}
+  .brief-steps li{margin:0;display:grid;grid-template-columns:2.8rem minmax(0,1fr);align-items:center;gap:.75rem;padding:.65rem;border:1px solid var(--line);border-left:3px solid #b97065;border-radius:.55rem;background:#1b131a}
+  .brief-steps svg{width:100%;max-width:2.45rem;height:auto;fill:none;stroke:var(--gold);stroke-width:2.7;stroke-linecap:round;stroke-linejoin:round}
+  .brief-label{display:block;font:700 .82rem/1.4 ui-monospace,monospace;text-transform:uppercase;letter-spacing:.1em;color:var(--gold)}
+  .brief-steps p{font-size:.95rem;margin:.12rem 0 0;color:var(--muted)}
+  .field-label{display:block;font-weight:700;margin:.5rem 0 .2rem}
+  textarea{display:block;width:100%;min-height:11rem;resize:vertical;background:var(--panel);border:1px solid var(--line);color:var(--text);padding:.75rem;border-radius:.55rem;font:inherit}
+  #mailCopyStatus{margin-left:.45rem}
 </style>
 </head>
 <body>
@@ -138,30 +150,17 @@
       <h1><span>&lt;VHU&gt;</span>VampireHunters</h1>
       <p class="lede">The alliance playbook for scouting, rallying and getting ready for the next event.</p>
       <p><span class="tag">VHU join rule: HQ Level 20+</span></p>
-      <div class="actions"><a class="btn" href="#field-guide">Start the field guide</a><a class="btn alt" href="#attack">Open the checklist</a></div>
+      <div class="actions"><a class="btn" href="#field-guide">Start the field guide</a><a class="btn alt" href="#mail-brief">Get alliance mail</a></div>
     </div>
-    <figure class="hero-art"><svg viewBox="0 0 600 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="map-title map-description">
-<title id="map-title">State 788 field map illustration</title><desc id="map-description">A red sun over a ruined skyline with a route connecting three generic game-planning checkpoints. This is not the in-game map.</desc>
-<defs>
-  <linearGradient id="night" x2="1" y2="1"><stop stop-color="#271727"/><stop offset="1" stop-color="#101321"/></linearGradient>
-  <linearGradient id="sun" x2="0" y2="1"><stop stop-color="#ffbc78"/><stop offset="1" stop-color="#ea436a"/></linearGradient>
-  <pattern id="mesh" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#e1a7b0" stroke-opacity=".18"/></pattern>
-  <clipPath id="frame"><rect width="600" height="440" rx="17"/></clipPath>
-</defs>
-<g clip-path="url(#frame)">
-  <path fill="url(#night)" d="M0 0h600v440H0z"/><path fill="url(#mesh)" d="M0 0h600v440H0z"/>
-  <circle cx="375" cy="173" r="109" fill="url(#sun)" opacity=".91"/>
-  <g fill="#25111e"><path d="m337 115 14 7 11-4 9 4 15-8-9 12-9 2-6 5-6-5-10-2z"/><path d="m393 92 9 4 6-3 6 3 9-4-6 8-6 1-3 3-3-3-6-1z"/></g>
-  <path d="M0 272 72 205 127 240 174 174 218 238 276 209 320 264 412 209 453 251 529 192 600 263V440H0Z" fill="#3a2439"/>
-  <path d="M0 310h49v-40h25v-23h18v23h22v55h31v-69h13v-20h17v20h19v70h48v-31h26v-25h29v25h20v41h39v-61h24v-19h31v22h19v39h32v-54h19v-41h9v41h32v46h34v-40h29v-23h16v23h30v172H0Z" fill="#121622"/>
-  <g fill="none" stroke="#bd839c" opacity=".38"><path d="M-20 350Q92 294 155 322T297 333 410 306 620 327M-20 372Q92 317 155 345T297 356 410 329 620 350M-20 398Q92 345 155 369T297 380 410 354 620 374M-20 424Q92 370 155 391T297 405 410 379 620 400"/></g>
-  <path d="m107 329 106-80 84 34 143-124 57 40" fill="none" stroke="#ffc781" stroke-width="3" stroke-dasharray="7 9"/>
-  <g fill="#242135" stroke="#ffd397" stroke-width="3"><circle cx="107" cy="329" r="13"/><circle cx="297" cy="283" r="13"/><circle cx="497" cy="199" r="13"/></g>
-  <g fill="#ffd397" font-family="monospace" font-weight="bold" font-size="19"><text x="126" y="353">01 SCOUT</text><text x="314" y="302">02 CALL</text><text x="463" y="232">03 RALLY</text></g>
-  <g stroke="#ffe0a2" opacity=".7"><circle cx="53" cy="56" r="19" fill="none"/><path d="M53 29v54M26 56h54"/></g>
-  <text x="42" y="402" fill="#efb1b8" font-size="17" letter-spacing="5" font-family="monospace">STATE 788 / FIELD MAP</text>
-</g><rect x="1" y="1" width="598" height="438" rx="17" fill="none" stroke="#aa5c74" stroke-width="2"/>
-</svg></figure>
+    <div class="briefing" aria-labelledby="brief-heading">
+  <p class="eyebrow">Attack Day at a glance</p>
+  <h2 id="brief-heading">Scout. Rally. Report.</h2>
+  <ol class="brief-steps">
+    <li><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="21" cy="21" r="12"/><path d="m30 30 11 11M21 14v14m-7-7h14"/></svg><div><span class="brief-label">01 / Scout</span><p>Check the target. If farming status is unclear, hold.</p></div></li>
+    <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M11 42V7h26l-5 8 5 8H11m-4 19h12"/><circle cx="32" cy="34" r="5"/><path d="m37 34 4 0"/></svg><div><span class="brief-label">02 / Rally</span><p>One caller gives the go. Strong targets aren’t solo hits.</p></div></li>
+    <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M13 7h16l7 7v27H13zM28 7v9h8M19 23h11m-11 6h11m-11 6h7"/></svg><div><span class="brief-label">03 / Report</span><p>Share what the battle report shows and what the team should do next.</p></div></li>
+  </ol>
+</div>
   </div>
 </header>
 
@@ -172,6 +171,7 @@
   <a href="#event-desk">Event Desk</a>
   <a href="#job">Our Job</a>
   <a class="fast-link" href="#attack">Attack Day</a>
+  <a href="#mail-brief">Alliance Mail</a>
   <a href="#tanks">Tanks</a>
   <a href="#peace">Peace Day</a>
   <a href="#saturday">Saturday</a>
@@ -179,7 +179,7 @@
   <a href="#readiness">Readiness</a>
   <a href="#reference">Glossary</a>
   <a href="#grow">Grow</a>
-  <a href="#feedback">Your Ideas</a>
+  <a href="#feedback">Suggestions</a>
 </nav>
 
 <main id="main" tabindex="-1">
@@ -208,6 +208,20 @@
   </ol>
 </section>
 
+<section id="mail-brief">
+  <p class="eyebrow">Ready to share</p>
+  <h2>Attack Day alliance mail</h2>
+  <p>Copy this into in-game mail. Fill in the caller and time before sending.</p>
+  <label class="field-label" for="allianceMail">Message text</label>
+  <textarea id="allianceMail" rows="7" readonly>VHU ATTACK DAY | Caller: [name or role] | Start: [Apocalypse Time]
+SCOUT: Verify the target farms. If unsure, hold and ask. Do not hit non-farmers.
+RALLY: Follow one caller. Rally strong targets; don’t go solo.
+REPORT: Post the outcome and what the team should do next.
+If a friendly base is under attack, share the location and ETA in alliance chat. Wait for the caller’s direction.</textarea>
+  <button class="btn" id="copyAllianceMail" type="button">Copy alliance mail</button>
+  <span class="note" id="mailCopyStatus" role="status" aria-live="polite"></span>
+</section>
+
 <section id="field-guide">
   <p class="eyebrow">VHU member training</p>
   <h2>Field Guide</h2>
@@ -231,6 +245,7 @@
     <article><span class="step" aria-hidden="true">02</span><h3>Volcano War</h3><p>Check if the event is available on your state, then verify entry requirements, battle window, rewards, and zone restrictions. Assign an objective and a backup before you send anyone in.</p><a href="#volcano">See the Volcano War brief</a></article>
     <article><span class="step" aria-hidden="true">03</span><h3>Post one clear brief</h3><p>Include the exact event name, start time in the game’s clock, countdown, caller, and one objective. Recheck the countdown just before launch. Don’t use a fixed local-time conversion copied from a previous event.</p></article>
   </div>
+  <details><summary>Example: read the calendar before spending</summary><p>In a sample in-game calendar, the listed theme changed between time slots and between days. Before spending recruit tickets or hero experience, check the active time slot and open its point rules. A theme name alone doesn’t tell you which actions score. Use today’s screen, not a screenshot from an earlier round.</p></details>
   <details class="sources"><summary>Game sources and what still needs a check</summary><p>The publisher’s public material confirms the game and its emphasis on alliances, base growth, technology and military progression. It doesn’t establish the current build, event schedule or rewards for State 788. Use the in-game rules for variable details and keep VHU rules separate.</p><ul><li><a href="https://last-z.com/">Official Last Z news</a></li><li><a href="https://play.google.com/store/apps/details?hl=en_US&amp;id=com.readygo.barrel.gp">Developer-provided game overview on Google Play</a></li></ul></details>
 </section>
 
@@ -289,7 +304,7 @@
     <li><strong>Keep hospitals empty</strong> and use shields when we are under heavy attack.</li>
     <li><strong>Counter the faction.</strong> Check the current matchup information and your battle reports.</li>
   </ul>
-  <p class="note">Needs a test in game <span class="test">TEST</span> Can we hit a march while it is on the map, and what does it cost? Tell us what you find in the Your Ideas box below.</p>
+  <p class="note">Needs a test in game <span class="test">TEST</span> Can we hit a march while it is on the map, and what does it cost? Share what you find in alliance chat.</p>
 </section>
 
 <section id="peace">
@@ -353,24 +368,11 @@
 </section>
 
 <section id="feedback">
-  <h2>Your Ideas, Notes and Comments</h2>
-  <p>This site gets better when you add to it. Found a better way to attack? Saw a mistake? Have a question? Tell us.</p>
-
-  <p>
-    <a class="btn" id="formBtn" href="#" aria-disabled="true">Leave a note (no account needed)</a>
-    <a class="btn alt" id="ghBtn" href="#" aria-disabled="true">Join the discussion on GitHub</a>
-  </p>
-  <p class="note"><span id="feedbackStatus">Feedback links are not set up yet. Until they are, share your ideas in alliance chat.</span></p>
-
-  <div id="formWrap"></div>
-
-  <h3>Good things to send us</h3>
-  <ul>
-    <li>"I tested X in game and here is what happened."</li>
-    <li>"This part is wrong or old."</li>
-    <li>"Add a page about ____."</li>
-    <li>Screenshots help a lot. Do not post other players' private info.</li>
-  </ul>
+  <h2>Suggest an improvement</h2>
+  <p>Found a rule that changed or a tip that needs a test? Send it to the playbook owner for review. Suggestions won’t appear on this site.</p>
+  <p class="note">Include the screen or mode, what happened, and what you’d change. Leave out player names, coordinates, and account details.</p>
+  <a class="btn" id="formBtn" hidden>Send a private suggestion</a>
+  <p class="note" id="feedbackStatus">Private submissions aren’t enabled yet. There’s nowhere to send a suggestion from this page right now.</p>
 </section>
 
 </main>
@@ -381,25 +383,38 @@
 </footer>
 
 <script>
-  /* ====== EDIT THESE THREE LINES AFTER YOU SET UP THE FORM AND GITHUB ======
-     1) FORM_LINK:   the Google Form "Send" link (starts with https://forms.gle/ or https://docs.google.com/forms/)
-     2) FORM_EMBED:  the Google Form "Embed HTML" src link (optional, shows the form right on the page)
-     3) DISCUSSIONS: your repo's Discussions link, like https://github.com/thebardchat/vhu-playbook/discussions
-  */
+  /* Owner setup: use only the responder link to a form owned by the playbook owner.
+     Keep public response summaries off and give nobody else access to responses.
+     FORM_EMBED and DISCUSSIONS are retained for old configs but not displayed. */
   var FORM_LINK   = "";
   var FORM_EMBED  = "";
   var DISCUSSIONS = "";
 
   (function(){
-    var f = document.getElementById("formBtn"), g = document.getElementById("ghBtn");
-    if (FORM_LINK){ f.href = FORM_LINK; f.target = "_blank"; f.rel = "noopener"; f.removeAttribute("aria-disabled"); }
-    if (DISCUSSIONS){ g.href = DISCUSSIONS; g.target = "_blank"; g.rel = "noopener"; g.removeAttribute("aria-disabled"); }
-    if (FORM_LINK || DISCUSSIONS || FORM_EMBED){ document.getElementById("feedbackStatus").textContent = "Use an available feedback option. GitHub Discussions requires a GitHub account."; }
-    if (FORM_EMBED){
-      var w = document.getElementById("formWrap");
-      w.innerHTML = '<iframe src="' + FORM_EMBED + '" title="Alliance notes form" loading="lazy">Loading…</iframe>';
-    }
+    if (!FORM_LINK) return;
+    try {
+      var url = new URL(FORM_LINK);
+      var shortForm = url.hostname === "forms.gle" && url.pathname.length > 1;
+      var directForm = url.hostname === "docs.google.com" && /^\/forms\/d\/e\/[^/]+\/viewform\/?$/.test(url.pathname);
+      if (url.protocol !== "https:" || url.username || url.password || url.port || (!shortForm && !directForm)) return;
+      var f = document.getElementById("formBtn");
+      f.href = url.href; f.target = "_blank"; f.rel = "noopener noreferrer"; f.hidden = false;
+      document.getElementById("feedbackStatus").textContent = "The form opens in a new tab and sends your suggestion to the owner for review.";
+    } catch(e){}
   })();
+
+  document.getElementById("copyAllianceMail").addEventListener("click", async function(){
+    var field = document.getElementById("allianceMail");
+    var status = document.getElementById("mailCopyStatus");
+    try {
+      if (!navigator.clipboard) throw new Error("Clipboard unavailable");
+      await navigator.clipboard.writeText(field.value);
+      status.textContent = "Copied. Paste it into alliance mail.";
+    } catch(e) {
+      field.focus(); field.select();
+      status.textContent = "Text selected. Press Ctrl+C or use your phone’s Copy menu.";
+    }
+  });
 
   document.getElementById("printChecklist").addEventListener("click", function(){ window.print(); });
 
