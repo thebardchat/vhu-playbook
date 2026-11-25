@@ -76,30 +76,113 @@
     .btn{width:100%;margin-right:0;text-align:center}
   }
   @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+  :root{--bg:#10121b;--card:#191c28;--panel:#121520;--line:#3b4054;--text:#fff5ed;--muted:#cec5cf;--accent:#ffa59c;--gold:#ffd397}
+  body{background:radial-gradient(ellipse at 12% 12%,#231925,transparent 55%),var(--bg)}
+  .skip{position:fixed;top:.6rem;left:.7rem;z-index:20;transform:translateY(-180%);background:#111;padding:.6rem 1rem}
+  .skip:focus{transform:none}
+  header{position:relative;text-align:left;border-top:0;padding:clamp(1.3rem,4vw,3.2rem) 1rem;background:linear-gradient(130deg,#231424,#161725 56%,#261929)}
+  .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.04fr);gap:clamp(1.2rem,4vw,3.1rem);align-items:center;max-width:72rem;margin:auto}
+  .eyebrow{margin:0 0 .8rem!important;font:700 .76rem/1.35 ui-monospace,monospace;letter-spacing:.16em;color:var(--gold)!important;text-transform:uppercase}
+  header h1{font-size:clamp(2.1rem,6vw,4.65rem);letter-spacing:-.058em;text-wrap:initial;margin:0;overflow-wrap:normal}
+  .hero h1 span{display:block;font-size:.43em;letter-spacing:.13em;margin-bottom:.14em}
+  .hero p{max-width:34rem;text-wrap:initial}
+  .hero .lede{margin-top:1rem;font-size:clamp(1rem,2vw,1.24rem)}
+  .hero .tag{margin:.5rem 0;color:var(--gold);border-color:#916747}
+  .hero-art{margin:0;min-width:0}
+  .hero-art svg{display:block;width:100%;height:auto;filter:drop-shadow(0 12px 23px #090911b0)}
+  .actions{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}
+  .actions .btn{margin:0}
+  main{max-width:74rem}
+  #rule{border-left:4px solid var(--accent);background:linear-gradient(110deg,#382032,var(--card) 70%)}
+  .guide-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem;margin-top:1rem}
+  .guide-grid article{position:relative;min-width:0;padding:1rem;border:1px solid var(--line);border-radius:.75rem;background:var(--panel)}
+  .guide-grid h3{margin:.35rem 0}.guide-grid p{margin:.3rem 0 .7rem}
+  .step{display:inline-grid;place-items:center;width:2.35rem;height:2.35rem;border-radius:.4rem;background:#352338;color:var(--gold);font:700 .88rem ui-monospace,monospace;border:1px solid #72516b}
+  .route{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.45rem;padding:0;list-style:none}
+  .route li{margin:0;padding:.6rem;border:1px solid var(--line);border-radius:.45rem;background:var(--panel)}
+  .route strong{display:block;color:var(--gold)}
+  details{margin-top:1rem;padding:.65rem .85rem;border:1px solid var(--line);border-radius:.6rem}
+  summary{cursor:pointer;min-height:44px;align-content:center;color:var(--gold);font-weight:650}
+  .sources a{display:inline-block;padding:.3rem 0}
+  @media(max-width:46rem){.hero{grid-template-columns:minmax(0,1fr)}.hero-art{max-width:32rem}.route{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:27rem){.actions .btn{width:100%;text-align:center}.hero h1{overflow-wrap:anywhere}}
+ 
+  :root{--bg:#100d11;--card:#1d151b;--panel:#151015;--line:#50343d;--accent:#ffa09a;--gold:#ffd397}
+  body{background:radial-gradient(ellipse at 12% 12%,#2d1620,transparent 55%),var(--bg)}
+  header{background:linear-gradient(130deg,#30141f,#1c1218 56%,#210e17)}
+  .week{columns:2;column-gap:2.2rem}.week li{break-inside:avoid;padding:.35rem 0}
+  .glossary{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13rem),1fr));gap:.6rem}
+  .glossary div{padding:.65rem .8rem;border:1px solid var(--line);border-radius:.55rem;background:var(--panel)}
+  dt{color:var(--gold);font-weight:700}dd{margin:0;color:var(--muted)}
+  .fast-link{color:var(--gold);border-color:#976b53}
+  @media(max-width:46rem){.week{columns:1}}
+  @media print{
+    @page{margin:15mm}
+    body{background:white;color:black;font:11pt/1.3 system-ui,sans-serif}
+    body>header,body>nav,body>footer,.skip,main>section:not(#attack),.reset,.print-button{display:none!important}
+    main,#attack{padding:0;margin:0;border:0;background:white;max-width:none}
+    #attack h2,#attack h3,#attack .note{color:black}
+    .check label{background:white!important;color:black;border:0;min-height:0;padding:.2rem 0}
+    .check input{accent-color:black}
+  }
 </style>
 </head>
 <body>
 
+<a class="skip" href="#main">Skip to playbook</a>
 <header>
-  <h1>&lt;<span>VHU</span>&gt; VampireHunters</h1>
-  <p>Alliance playbook for Last Z: Survival Shooter</p>
-  <p>Home server: <strong>State 788</strong> &nbsp;•&nbsp; Join rule: <strong>HQ Level 20+</strong></p>
-  <span class="tag">Built by the alliance, for the alliance</span>
+  <div class="hero">
+    <div>
+      <p class="eyebrow">Last Z: Survival Shooter / State 788</p>
+      <h1><span>&lt;VHU&gt;</span>VampireHunters</h1>
+      <p class="lede">The alliance playbook for scouting, rallying and getting ready for the next event.</p>
+      <p><span class="tag">VHU join rule: HQ Level 20+</span></p>
+      <div class="actions"><a class="btn" href="#field-guide">Start the field guide</a><a class="btn alt" href="#attack">Open the checklist</a></div>
+    </div>
+    <figure class="hero-art"><svg viewBox="0 0 600 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="map-title map-description">
+<title id="map-title">State 788 field map illustration</title><desc id="map-description">A red sun over a ruined skyline with a route connecting three generic game-planning checkpoints. This is not the in-game map.</desc>
+<defs>
+  <linearGradient id="night" x2="1" y2="1"><stop stop-color="#271727"/><stop offset="1" stop-color="#101321"/></linearGradient>
+  <linearGradient id="sun" x2="0" y2="1"><stop stop-color="#ffbc78"/><stop offset="1" stop-color="#ea436a"/></linearGradient>
+  <pattern id="mesh" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#e1a7b0" stroke-opacity=".18"/></pattern>
+  <clipPath id="frame"><rect width="600" height="440" rx="17"/></clipPath>
+</defs>
+<g clip-path="url(#frame)">
+  <path fill="url(#night)" d="M0 0h600v440H0z"/><path fill="url(#mesh)" d="M0 0h600v440H0z"/>
+  <circle cx="375" cy="173" r="109" fill="url(#sun)" opacity=".91"/>
+  <g fill="#25111e"><path d="m337 115 14 7 11-4 9 4 15-8-9 12-9 2-6 5-6-5-10-2z"/><path d="m393 92 9 4 6-3 6 3 9-4-6 8-6 1-3 3-3-3-6-1z"/></g>
+  <path d="M0 272 72 205 127 240 174 174 218 238 276 209 320 264 412 209 453 251 529 192 600 263V440H0Z" fill="#3a2439"/>
+  <path d="M0 310h49v-40h25v-23h18v23h22v55h31v-69h13v-20h17v20h19v70h48v-31h26v-25h29v25h20v41h39v-61h24v-19h31v22h19v39h32v-54h19v-41h9v41h32v46h34v-40h29v-23h16v23h30v172H0Z" fill="#121622"/>
+  <g fill="none" stroke="#bd839c" opacity=".38"><path d="M-20 350Q92 294 155 322T297 333 410 306 620 327M-20 372Q92 317 155 345T297 356 410 329 620 350M-20 398Q92 345 155 369T297 380 410 354 620 374M-20 424Q92 370 155 391T297 405 410 379 620 400"/></g>
+  <path d="m107 329 106-80 84 34 143-124 57 40" fill="none" stroke="#ffc781" stroke-width="3" stroke-dasharray="7 9"/>
+  <g fill="#242135" stroke="#ffd397" stroke-width="3"><circle cx="107" cy="329" r="13"/><circle cx="297" cy="283" r="13"/><circle cx="497" cy="199" r="13"/></g>
+  <g fill="#ffd397" font-family="monospace" font-weight="bold" font-size="19"><text x="126" y="353">01 SCOUT</text><text x="314" y="302">02 CALL</text><text x="463" y="232">03 RALLY</text></g>
+  <g stroke="#ffe0a2" opacity=".7"><circle cx="53" cy="56" r="19" fill="none"/><path d="M53 29v54M26 56h54"/></g>
+  <text x="42" y="402" fill="#efb1b8" font-size="17" letter-spacing="5" font-family="monospace">STATE 788 / FIELD MAP</text>
+</g><rect x="1" y="1" width="598" height="438" rx="17" fill="none" stroke="#aa5c74" stroke-width="2"/>
+</svg></figure>
+  </div>
 </header>
 
 <nav aria-label="Playbook sections">
   <a href="#rule">Rule</a>
+  <a href="#new-player">Start</a>
+  <a href="#field-guide">Field Guide</a>
+  <a href="#event-desk">Event Desk</a>
   <a href="#job">Our Job</a>
-  <a href="#attack">Attack Day</a>
+  <a class="fast-link" href="#attack">Attack Day</a>
   <a href="#tanks">Tanks</a>
   <a href="#peace">Peace Day</a>
   <a href="#saturday">Saturday</a>
   <a href="#volcano">Volcano War</a>
+  <a href="#readiness">Readiness</a>
+  <a href="#reference">Glossary</a>
   <a href="#grow">Grow</a>
   <a href="#feedback">Your Ideas</a>
 </nav>
 
-<main>
+<main id="main" tabindex="-1">
 
 <section id="rule">
   <h2>The Alliance Rule</h2>
@@ -109,6 +192,46 @@
     <li>If they do not farm others, leave them alone.</li>
     <li>If they farm, they are fair game. Expect them to come back at us.</li>
   </ul>
+</section>
+
+<section id="new-player">
+  <p class="eyebrow">Start here</p><h2>Your First Week in VHU</h2>
+  <p>A practice plan, not a required unlock schedule. Move at your pace and use what the game shows on your account.</p>
+  <ol class="week">
+    <li><strong>Day 1:</strong> Read the alliance rule and the current announcement. Find alliance chat and ask how the caller gives the go.</li>
+    <li><strong>Day 2:</strong> Pick one goal, such as your next HQ upgrade. Open its requirements and write down the next prerequisite.</li>
+    <li><strong>Day 3:</strong> Choose one formation to practice with. Compare the faction and skill descriptions shown in-game before spending materials.</li>
+    <li><strong>Day 4:</strong> Check hospital space, inventory, and any shield you plan to use. Read the shield details before you count on it.</li>
+    <li><strong>Day 5:</strong> Practice a scout report. Separate what the report shows from what you’re guessing. Wait if the target’s status is unclear.</li>
+    <li><strong>Day 6:</strong> Open the active event rules. If the caller has a role for you, join under their direction. If there’s no event, review an earlier battle report instead.</li>
+    <li><strong>Day 7:</strong> Write down one thing that helped and one question to test. Pick your next upgrade based on what held you back.</li>
+  </ol>
+</section>
+
+<section id="field-guide">
+  <p class="eyebrow">VHU member training</p>
+  <h2>Field Guide</h2>
+  <p>New to VHU? Start here. These are alliance planning habits for Last Z: Survival Shooter on State 788, not game requirements.</p>
+  <div class="guide-grid">
+    <article><span class="step" aria-hidden="true">01</span><h3>Get ready to join</h3><p>Read the alliance rule and the day’s in-game announcement. Ask who is calling, what the group is doing, and where to wait. If you’re new to rallying, join a caller-led group before leading one.</p><a href="#rule">Read the alliance rule</a></article>
+    <article><span class="step" aria-hidden="true">02</span><h3>Share a useful scout report</h3><p>Keep it in alliance chat: target location, what the scout report actually shows, and what you couldn’t verify. A strong-looking target is not permission to attack. If its farming status is unclear, hold and ask.</p><a href="#attack">Open the Attack Day checklist</a></article>
+    <article><span class="step" aria-hidden="true">03</span><h3>React to an incoming march</h3><p>The first person who sees it calls out who is threatened and the ETA shown, if available. The caller chooses whether to reinforce, shield, or counter. Tell the group when conditions change; don’t send everyone off on separate plans.</p><a href="#tanks">Review the Tanks play</a></article>
+  </div>
+  <h3>Rally decision path</h3>
+  <ol class="route"><li><strong>01 Scout</strong>Check the target.</li><li><strong>02 Confirm</strong>Apply the VHU rule. If unsure, hold.</li><li><strong>03 Call</strong>Wait for one caller to give the go.</li><li><strong>04 Review</strong>Report what the result actually showed.</li></ol>
+  <details><summary>Copy-ready practice calls</summary><p><strong>Scout:</strong> “Target [in-game coordinates]. Scout shows [confirmed detail]. Farming status [confirmed / unknown]. Holding for the caller.”</p><p><strong>Incoming:</strong> “Incoming at [in-game coordinates], ETA [shown in game / unknown]. Caller, reinforce or shield?”</p><p><strong>After:</strong> “Action [rally / reinforce / hold]. Result [what the battle report showed]. Next thing to check [one item].”</p></details>
+</section>
+
+<section id="event-desk">
+  <p class="eyebrow">Check before committing</p>
+  <h2>Event Desk</h2>
+  <p>Use the event screen on State 788 for the current terms. Before the alliance spends items or sends marches, have one person read the live rules and post the plan in alliance chat.</p>
+  <div class="guide-grid">
+    <article><span class="step" aria-hidden="true">01</span><h3>Alliance Duel</h3><p>Read today’s scoring actions and the reset countdown. Save optional items for a scoring window you can actually make. Before combat, verify the opponent, points, and travel rules shown for the current round.</p><a href="#saturday">See the VHU combat-day plan</a></article>
+    <article><span class="step" aria-hidden="true">02</span><h3>Volcano War</h3><p>Check if the event is available on your state, then verify entry requirements, battle window, rewards, and zone restrictions. Assign an objective and a backup before you send anyone in.</p><a href="#volcano">See the Volcano War brief</a></article>
+    <article><span class="step" aria-hidden="true">03</span><h3>Post one clear brief</h3><p>Include the exact event name, start time in the game’s clock, countdown, caller, and one objective. Recheck the countdown just before launch. Don’t use a fixed local-time conversion copied from a previous event.</p></article>
+  </div>
+  <details class="sources"><summary>Game sources and what still needs a check</summary><p>The publisher’s public material confirms the game and its emphasis on alliances, base growth, technology and military progression. It doesn’t establish the current build, event schedule or rewards for State 788. Use the in-game rules for variable details and keep VHU rules separate.</p><ul><li><a href="https://last-z.com/">Official Last Z news</a></li><li><a href="https://play.google.com/store/apps/details?hl=en-US&amp;id=com.readygo.barrel.gphh">Developer-provided game overview on Google Play</a></li></ul></details>
 </section>
 
 <section id="job">
@@ -134,12 +257,12 @@
     <li><label><input type="checkbox"> Pick one caller (leader or an R4). Everyone follows the caller.</label></li>
     <li><label><input type="checkbox"> Use War Frenzy and Lucky Rose right before the hit.</label></li>
   </ul>
-  <p class="note"><strong>Lucky Rose:</strong> send 7 yellow roses to one person in one gift. That gives +10% troop attack for 2 hours.</p>
+  <p class="note"><strong>Lucky Rose:</strong> The old playbook listed seven yellow roses in one gift. <span class="test">VERIFY</span> Check the current gift requirement, buff, and duration before relying on it.</p>
 
   <h3>During the hit</h3>
   <ul class="check">
     <li><label><input type="checkbox"> Rally on strong targets. Do not attack strong targets alone.</label></li>
-    <li><label><input type="checkbox"> Loot in groups of 3 or more. Take Food and Wood first.</label></li>
+    <li><label><input type="checkbox"> Follow the caller’s group size and resource priorities.</label></li>
     <li><label><input type="checkbox"> Use your strongest same-faction team (F1).</label></li>
     <li><label><input type="checkbox"> Reinforce friends who are under attack.</label></li>
     <li><label><input type="checkbox"> Call out enemy marches that leave their HQ so we can answer.</label></li>
@@ -148,10 +271,11 @@
   <h3>After the hit</h3>
   <ul class="check">
     <li><label><input type="checkbox"> Heal in small batches.</label></li>
-    <li><label><input type="checkbox"> Shield up if you hold more than 1M Food or Wood, or if you go offline.</label></li>
+    <li><label><input type="checkbox"> Check how much you have exposed and shield up if you’re going offline, following the current in-game shield rules.</label></li>
     <li><label><input type="checkbox"> Tell the alliance what you saw: target, power, shield.</label></li>
   </ul>
   <button class="reset" id="resetChecks">Clear all checks</button>
+  <button class="reset print-button" id="printChecklist">Print checklist</button>
 </section>
 
 <section id="tanks">
@@ -163,7 +287,7 @@
     <li><strong>Counter-rally.</strong> An HQ that just sent its troops out is weaker. Rally it with the strongest players.</li>
     <li><strong>Protect the small.</strong> Newer and weaker members should shield up.</li>
     <li><strong>Keep hospitals empty</strong> and use shields when we are under heavy attack.</li>
-    <li><strong>Counter the faction.</strong> Wings beat Blood Rose. Blood Rose beat Guard of Order. Guard of Order beat Wings.</li>
+    <li><strong>Counter the faction.</strong> Check the current matchup information and your battle reports.</li>
   </ul>
   <p class="note">Needs a test in game <span class="test">TEST</span> Can we hit a march while it is on the map, and what does it cost? Tell us what you find in the Your Ideas box below.</p>
 </section>
@@ -181,26 +305,41 @@
 </section>
 
 <section id="saturday">
-  <h2>Saturday: Alliance Duel Combat Day</h2>
-  <p>Saturday is the best attack day. It is the combat day of the Alliance Duel (Day 6). You can teleport to the enemy server for free, and every kill gives points (4 points per kill).</p>
+  <h2>Saturday Combat Plan</h2>
+  <p>Use this VHU plan when the Alliance Duel shows a Saturday combat round. Confirm the day, eligible actions, points, and teleport rules on the current event screen.</p>
   <ul>
     <li>Everyone online, rested, and healed before the day starts.</li>
     <li>One caller. One plan. Rally the strong targets.</li>
-    <li>Use a 24-hour shield if we are winning and want to protect the lead.</li>
-    <li>A duel needs about 20 or more members, so every member counts. <span class="test">CHECK IN GAME</span></li>
+    <li>If the plan is to protect the lead, verify shield duration and restrictions before using one.</li>
+    <li>Check any minimum participation requirement on the event screen and confirm who can be online. <span class="test">CHECK IN GAME</span></li>
   </ul>
 </section>
 
 <section id="volcano">
   <h2>Volcano War</h2>
-  <p>Volcano War is a 10-day event between servers. The fight happens on <strong>Day 6 at 12:00 Apocalypse Time for exactly 1 hour</strong>.</p>
+  <p class="rule">Don’t commit a march until the caller confirms your entry window and objective.</p>
   <ul>
-    <li>You need <strong>HQ Level 15 or higher</strong> to teleport in.</li>
-    <li>You need <strong>2,000 personal points</strong> to get ranking rewards.</li>
-    <li>The core zone has no teleport and no shield.</li>
-    <li>Higher-value spots give more points per second (Black Ridge Volcano is the top spot).</li>
+    <li><strong>Before:</strong> Verify the battle date, game-clock start, duration, and entry rules on the active event card.</li>
+    <li><strong>During:</strong> Check the game’s rules for the zone you’re entering before using a shield or teleport. Follow the caller’s objective rather than chasing a high-value spot alone.</li>
+    <li><strong>After:</strong> Check the in-game reward conditions and report one thing the alliance should repeat or change next round.</li>
   </ul>
-  <p class="note">Apocalypse Time = Central Time + 4 hours. These numbers come from one guide, so please check them in game. <span class="test">VERIFY</span></p>
+  <p class="note"><span class="test">VERIFY IN GAME</span> Exact times, thresholds, and map restrictions are not confirmed for State 788.</p>
+</section>
+
+<section id="readiness">
+  <p class="eyebrow">Before spending or sending</p><h2>Heroes, Resources and Shields</h2>
+  <div class="guide-grid">
+    <article><h3>Heroes and formations</h3><p>Pick a team for a specific job: your first rally, defense, or general progression. Check the formation screen for faction bonuses and skill text. Change one thing at a time and compare in-game reports before spending rare materials.</p><p><span class="test">VERIFY</span> For faction counters, use the matchup information shown by the current game before a fight. Don’t assume a faction matchup outweighs every other detail in a report.</p></article>
+    <article><h3>Resources and upgrades</h3><p>Write down what your next upgrade needs. Check what you already have and what the game says is protected before opening extra packs. If you’re saving for a Duel, read the active scoring rules before committing items.</p></article>
+    <article><h3>Shields and hospital space</h3><p>Before going offline or joining a fight, check the shield duration, what can end it, and current hospital space. If you can’t cover the event window or risk more wounded troops, tell the caller and take a support role if one is available.</p></article>
+  </div>
+</section>
+
+<section id="reference">
+  <p class="eyebrow">Keep it handy</p><h2>Glossary and Lessons</h2>
+  <dl class="glossary"><div><dt>HQ</dt><dd>Your headquarters or home base.</dd></div><div><dt>Rally</dt><dd>A coordinated group attack started by one player.</dd></div><div><dt>Scout</dt><dd>Check a target in-game before acting.</dd></div><div><dt>Plunder</dt><dd>Take resources through an in-game action. Follow the current event and VHU rules.</dd></div><div><dt>Farm</dt><dd>VHU shorthand here for repeatedly attacking for resources.</dd></div><div><dt>Tanks</dt><dd>VHU shorthand here for enemy marches leaving an HQ to attack, not a unit classification.</dd></div><div><dt>F1</dt><dd>First formation in this playbook. Confirm which team you have in that slot.</dd></div><div><dt>Caller</dt><dd>The person coordinating the group’s next move.</dd></div></dl>
+  <details><summary>What belongs in the Lessons Learned log?</summary><p>A confirmed in-game lesson should name the game mode, what was tried, what the report showed, and what to repeat next time. Leave names, coordinates, member stats and screenshots with private details out of public notes.</p><p>Keep an untested claim in the test queue and label opinions as ideas. No new tests have been logged here.</p></details>
+  <details><summary>What if a rule on this page differs from my event screen?</summary><p>Use your active game screen for mechanics and timing. Follow the VHU rule for who the alliance may attack. If either is unclear, hold and ask the caller.</p></details>
 </section>
 
 <section id="grow">
@@ -221,7 +360,7 @@
     <a class="btn" id="formBtn" href="#" aria-disabled="true">Leave a note (no account needed)</a>
     <a class="btn alt" id="ghBtn" href="#" aria-disabled="true">Join the discussion on GitHub</a>
   </p>
-  <p class="note">The first button works for everyone. The second one needs a free GitHub account.</p>
+  <p class="note"><span id="feedbackStatus">Feedback links are not set up yet. Until they are, share your ideas in alliance chat.</span></p>
 
   <div id="formWrap"></div>
 
@@ -238,7 +377,7 @@
 
 <footer>
   <p>&lt;VHU&gt; VampireHunters • State 788 • This is a fan-made alliance guide, not an official game site.</p>
-  <p>Last updated: <span id="updated">Nov 19, 2026</span></p>
+  <p>Last updated: <span id="updated">Nov 25, 2026</span></p>
 </footer>
 
 <script>
@@ -255,11 +394,14 @@
     var f = document.getElementById("formBtn"), g = document.getElementById("ghBtn");
     if (FORM_LINK){ f.href = FORM_LINK; f.target = "_blank"; f.rel = "noopener"; f.removeAttribute("aria-disabled"); }
     if (DISCUSSIONS){ g.href = DISCUSSIONS; g.target = "_blank"; g.rel = "noopener"; g.removeAttribute("aria-disabled"); }
+    if (FORM_LINK || DISCUSSIONS || FORM_EMBED){ document.getElementById("feedbackStatus").textContent = "Use an available feedback option. GitHub Discussions requires a GitHub account."; }
     if (FORM_EMBED){
       var w = document.getElementById("formWrap");
       w.innerHTML = '<iframe src="' + FORM_EMBED + '" title="Alliance notes form" loading="lazy">Loading…</iframe>';
     }
   })();
+
+  document.getElementById("printChecklist").addEventListener("click", function(){ window.print(); });
 
   /* Save checkbox state on this phone only */
   (function(){
