@@ -7,47 +7,75 @@
 <meta name="description" content="Playbook, checklists, and rules for the VHU VampireHunters alliance in Last Z: Survival Shooter (State 788).">
 <style>
   :root{
-    --bg:#0f0a0b; --card:#1a1214; --line:#3a2226; --text:#f1e8e8; --muted:#b9a6a8;
-    --red:#d12b3a; --red2:#ff5a68; --gold:#e6b450;
+    color-scheme:dark;
+    --bg:#100b0e; --card:#1b1217; --panel:#150e13; --line:#4b303c;
+    --text:#fff4f4; --muted:#d3bbc3; --accent:#ff8191; --gold:#f3c872;
   }
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{margin:0;background:var(--bg);color:var(--text);font:17px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-  a{color:var(--red2)}
-  header{padding:42px 20px 30px;text-align:center;border-bottom:1px solid var(--line);
-    background:radial-gradient(ellipse at top,#3b1118 0%,var(--bg) 70%)}
-  header h1{margin:0 0 6px;font-size:clamp(28px,6vw,44px);letter-spacing:.5px}
-  header h1 span{color:var(--red2)}
-  header p{margin:4px 0;color:var(--muted)}
-  .tag{display:inline-block;margin-top:12px;padding:4px 12px;border:1px solid var(--red);border-radius:99px;color:var(--red2);font-size:14px}
-  nav{position:sticky;top:0;z-index:5;background:#150d0fee;backdrop-filter:blur(6px);border-bottom:1px solid var(--line);
-    display:flex;gap:6px;overflow-x:auto;padding:10px 12px;white-space:nowrap}
-  nav a{color:var(--text);text-decoration:none;padding:6px 12px;border-radius:99px;border:1px solid var(--line);font-size:14px}
-  nav a:hover{background:var(--red);border-color:var(--red)}
-  main{max-width:860px;margin:0 auto;padding:10px 16px 60px}
-  section{margin:28px 0;padding:22px 20px;background:var(--card);border:1px solid var(--line);border-radius:14px}
-  h2{margin:0 0 12px;font-size:24px;color:var(--red2)}
-  h3{margin:18px 0 6px;font-size:18px;color:var(--gold)}
-  ul{padding-left:20px;margin:8px 0}
-  li{margin:5px 0}
-  .rule{border-left:4px solid var(--red);padding:10px 14px;background:#240f13;border-radius:6px;font-weight:600}
-  .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-  .box{background:#150d0f;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
-  .box h3{margin-top:0}
-  .check li{list-style:none;margin-left:-20px}
-  .check label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
-  .check input{margin-top:6px;accent-color:var(--red);width:18px;height:18px;flex:none}
-  .note{color:var(--muted);font-size:15px}
-  .test{display:inline-block;font-size:12px;padding:1px 8px;border-radius:99px;border:1px solid var(--gold);color:var(--gold);margin-left:6px;vertical-align:middle}
-  .btn{display:inline-block;margin:6px 8px 6px 0;padding:11px 18px;border-radius:10px;background:var(--red);color:#fff;text-decoration:none;font-weight:600;border:0;cursor:pointer;font-size:16px}
-  .btn.alt{background:transparent;border:1px solid var(--red);color:var(--red2)}
-  .btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
-  button.reset{background:transparent;border:1px solid var(--line);color:var(--muted);padding:6px 12px;border-radius:8px;cursor:pointer;margin-top:8px}
-  iframe{width:100%;border:0;border-radius:10px;background:#fff;min-height:620px}
-  table{width:100%;border-collapse:collapse;font-size:16px}
-  th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left}
+  html{scroll-behavior:smooth;scroll-padding-top:5.7rem}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font:clamp(1rem,.97rem + .15vw,1.09rem)/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}
+  a{color:var(--accent);text-underline-offset:.18em}
+  :focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+  header{padding:clamp(2.8rem,7vw,5rem) 1rem clamp(2.5rem,6vw,4rem);text-align:center;
+    border-block:4px solid var(--accent);border-bottom-width:1px;border-bottom-color:var(--line);
+    background:radial-gradient(ellipse at top,#59232f 0%,#27131d 50%,var(--bg) 100%)}
+  header h1{margin:0 0 .55rem;font-size:clamp(1.9rem,5.6vw,3.8rem);
+    line-height:1.07;letter-spacing:-.045em;text-wrap:balance;overflow-wrap:anywhere}
+  header h1 span{color:var(--accent)}
+  header p{margin:.38rem 0;color:var(--muted);text-wrap:balance}
+  header strong{color:var(--text)}
+  .tag{display:inline-block;margin-top:1.1rem;padding:.3rem .75rem;border:1px solid #9a5362;
+    border-radius:99px;color:var(--accent);font-size:.81rem;font-weight:650}
+  nav{position:sticky;top:0;z-index:5;background:var(--panel);border-bottom:1px solid var(--line);
+    display:flex;justify-content:safe center;gap:.38rem;overflow-x:auto;padding:.65rem max(1rem,calc((100% - 61rem)/2));white-space:nowrap;
+    scrollbar-width:thin;scrollbar-color:#855166 var(--panel)}
+  nav a{display:inline-flex;align-items:center;min-height:44px;flex:none;color:var(--text);text-decoration:none;
+    padding:0 .68rem;border-radius:.55rem;border:1px solid var(--line);font-size:.84rem;font-weight:620}
+  nav a:hover{background:#38212d;border-color:var(--accent)}
+  nav a:focus-visible{outline-offset:-3px}
+  main{max-width:63rem;margin:0 auto;padding:clamp(.9rem,3vw,1.8rem) 1rem 4rem}
+  section{margin:0 0 1.15rem;padding:clamp(1rem,3.3vw,2rem);background:var(--card);
+    border:1px solid var(--line);border-radius:1rem}
+  section:target{border-color:var(--accent)}
+  h2{margin:0 0 .65rem;font-size:clamp(1.38rem,3vw,1.92rem);line-height:1.2;color:var(--accent);text-wrap:balance}
+  h3{margin:1.15rem 0 .4rem;font-size:1.03rem;color:var(--gold)}
+  p{margin:.55rem 0 .85rem}
+  ul{padding-left:1.4rem;margin:.55rem 0}
+  li{margin:.3rem 0}
+  li::marker{color:var(--accent)}
+  .rule{border-left:4px solid var(--accent);padding:.75rem .9rem;background:#321922;border-radius:.35rem;font-weight:680}
+  .grid{display:grid;gap:.7rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr))}
+  .box{min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:.72rem;padding:.85rem .95rem}
+  .box h3,.box p{margin:0}
+  .check{padding:0}
+  .check li{list-style:none;margin:.4rem 0}
+  .check label{display:flex;gap:.7rem;align-items:flex-start;cursor:pointer;min-height:44px;padding:.55rem .68rem;
+    border:1px solid var(--line);border-radius:.5rem;background:var(--panel)}
+  .check label:hover,.check label:focus-within{border-color:var(--accent)}
+  .check label:has(input:checked){background:#311b27;border-color:#a86175}
+  .check input{margin:.24rem 0 0;accent-color:var(--accent);width:1.12rem;height:1.12rem;flex:none}
+  .note{color:var(--muted);font-size:.94rem}
+  .test{display:inline-block;font-size:.72rem;padding:.06rem .45rem;border-radius:99px;border:1px solid #785a36;color:var(--gold);margin-left:.3rem}
+  .btn{display:inline-block;margin:.3rem .4rem .3rem 0;padding:.66rem .9rem;border-radius:.55rem;background:var(--accent);
+    color:#230b14;text-decoration:none;font-weight:700;border:1px solid transparent;font-size:.95rem}
+  .btn.alt{background:transparent;border-color:var(--accent);color:var(--accent)}
+  .btn[aria-disabled="true"]{opacity:.62;pointer-events:none}
+  button.reset{min-height:44px;background:var(--panel);border:1px solid #885668;color:var(--text);
+    padding:.35rem .72rem;border-radius:.5rem;cursor:pointer;margin-top:.6rem;font:inherit;font-size:.88rem}
+  button.reset:hover{border-color:var(--accent)}
+  iframe{width:100%;border:0;border-radius:.6rem;background:white;min-height:620px}
+  table{width:100%;border-collapse:collapse;font-size:.94rem}
+  th,td{padding:.45rem .55rem;border-bottom:1px solid var(--line);text-align:left}
   th{color:var(--gold)}
-  footer{text-align:center;color:var(--muted);font-size:14px;padding:30px 16px 50px;border-top:1px solid var(--line)}
+  footer{text-align:center;color:var(--muted);font-size:.84rem;padding:1.6rem 1rem 2.3rem;border-top:1px solid var(--line)}
+  @media(max-width:30rem){
+    header{padding-inline:.9rem}
+    main{padding-inline:.75rem}
+    nav{padding-inline:.75rem}
+    .btn{width:100%;margin-right:0;text-align:center}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
@@ -59,7 +87,7 @@
   <span class="tag">Built by the alliance, for the alliance</span>
 </header>
 
-<nav>
+<nav aria-label="Playbook sections">
   <a href="#rule">Rule</a>
   <a href="#job">Our Job</a>
   <a href="#attack">Attack Day</a>
