@@ -57,7 +57,7 @@
   .check input{margin:.24rem 0 0;accent-color:var(--accent);width:1.12rem;height:1.12rem;flex:none}
   .note{color:var(--muted);font-size:.94rem}
   .test{display:inline-block;font-size:.72rem;padding:.06rem .45rem;border-radius:99px;border:1px solid #785a36;color:var(--gold);margin-left:.3rem}
-  .btn{display:inline-block;margin:.3rem .4rem .3rem 0;padding:.66rem .9rem;border-radius:.55rem;background:var(--accent);
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;margin:.3rem .4rem .3rem 0;padding:.66rem .9rem;border-radius:.55rem;background:var(--accent);
     color:#230b14;text-decoration:none;font-weight:700;border:1px solid transparent;font-size:.95rem}
   .btn.alt{background:transparent;border-color:var(--accent);color:var(--accent)}
   .btn[aria-disabled="true"]{opacity:.62;pointer-events:none}
@@ -153,9 +153,37 @@
   .farm-art figcaption{margin-top:.45rem}
   .farm-layout .rule{margin-top:0}
   @media(max-width:46rem){.farm-layout{grid-template-columns:minmax(0,1fr)}}
+
+  .icon-sprite{position:absolute;width:0;height:0;overflow:hidden}
+  .section-head{display:flex;align-items:flex-start;gap:.65rem;margin:0 0 .65rem}
+  .section-head h2{margin:0}
+  .section-head .eyebrow{margin:0 0 .3rem!important}
+  .h-icon{width:1.65rem;height:1.65rem;flex:none;margin-top:.2rem;color:var(--accent);
+    fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .card-link{display:inline-flex;align-items:center;min-height:44px;font-weight:650}
 </style>
 </head>
 <body>
+
+<svg class="icon-sprite" aria-hidden="true" focusable="false">
+<symbol id="i-rule" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3 8.5-7 9-4-.5-7-4-7-9V6l7-3z"/><path d="M8.5 12l2.3 2.3L15.5 9.5"/></symbol>
+<symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 4v16M8 20h8M4 8h16M4 8l-2 5a3 3 0 0 0 6 0L6 8M20 8l-2 5a3 3 0 0 0 6 0l-2-5"/></symbol>
+<symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V3M5 4h12l-3 4 3 4H5"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><path d="M3 6h18v12H3z"/><path d="M3 6l9 7 9-7"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M12 5c-2-1.2-5-1.8-9-1.8v14.6c4 0 7 .6 9 1.8 2-1.2 5-1.8 9-1.8V3.2c-4 0-7 .6-9 1.8z"/><path d="M12 5v14.6"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.2 5 5.3.5-4 3.6 1.2 5.3L12 14.9 7.3 17.4l1.2-5.3-4-3.6 5.3-.5z"/></symbol>
+<symbol id="i-clipboard" viewBox="0 0 24 24"><path d="M9 3h6v3H9z"/><path d="M6 5h12v16H6z"/><path d="M9 10h6M9 14h6M9 18h3"/></symbol>
+<symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r=".6"/></symbol>
+<symbol id="i-sword" viewBox="0 0 24 24"><path d="M12 2v13M9 6h6M8 17l4 4 4-4M12 21v1.2"/></symbol>
+<symbol id="i-shield-alert" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3 8.5-7 9-4-.5-7-4-7-9V6l7-3z"/><path d="M12 8.5v4.2"/><path d="M12 15.3h.01"/></symbol>
+<symbol id="i-leaf" viewBox="0 0 24 24"><path d="M12 21c-5-1-9-5-9-10 0-4 3-7 7-7 1 5 4 8 9 9-1 4-4 7-7 8z"/><path d="M6 18c3-3 6-7 7-12"/></symbol>
+<symbol id="i-calendar-check" viewBox="0 0 24 24"><path d="M4 5h16v15H4z"/><path d="M4 9h16M8 3v4M16 3v4M9 14l2 2 4-4.5"/></symbol>
+<symbol id="i-volcano" viewBox="0 0 24 24"><path d="M4 20h16L14.5 9.5 12 13l-2-2.8L4 20z"/><path d="M11.3 4.2l.7 2 .7-2"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.3-7-9.7A4.3 4.3 0 0 1 12 8a4.3 4.3 0 0 1 7 2.3C19 15.7 12 20 12 20z"/></symbol>
+<symbol id="i-list" viewBox="0 0 24 24"><path d="M5 6h2M9 6h10M5 12h2M9 12h10M5 18h2M9 18h10"/></symbol>
+<symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 4h16v11H9l-4 4v-4H4z"/></symbol>
+</svg>
 
 <a class="skip" href="#main">Skip to playbook</a>
 <header>
@@ -219,7 +247,7 @@
 <main id="main" tabindex="-1">
 
 <section id="rule">
-  <h2>The Alliance Rule</h2>
+  <div class="section-head"><svg class="h-icon" aria-hidden="true"><use href="#i-rule"/></svg><h2>The Alliance Rule</h2></div>
   <p class="rule">Never farm a non-farming player or alliance. Everyone else is fair game. Expect to get farmed and expect to fight back.</p>
   <ul>
     <li>Before you hit anyone, scout them first.</li>
@@ -229,8 +257,7 @@
 </section>
 
 <section id="farming-rules">
-  <p class="eyebrow">VHU alliance policy • review draft</p>
-  <h2>Farming Rules</h2>
+  <div class="section-head"><svg class="h-icon" aria-hidden="true"><use href="#i-scale"/></svg><div><p class="eyebrow">VHU alliance policy • review draft</p><h2>Farming Rules</h2></div></div>
   <p><strong>Farming</strong> means attacking another player’s in-game headquarters to take resources. A <strong>hive</strong> is a cluster of headquarters where members of an alliance stay together.</p>
   <div class="farm-layout">
     <figure class="farm-art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 430" role="img" aria-labelledby="hive-art-title hive-art-desc">
@@ -266,7 +293,7 @@
 </section>
 
 <section id="new-player">
-  <p class="eyebrow">Start here</p><h2>Your First Week in VHU</h2>
+  <div class="section-head"><svg class="h-icon" aria-hidden="true"><use href="#i-flag"/></svg><div><p class="eyebrow">Start here</p><h2>Your First Week in VHU</h2></div></div>
   <p>A practice plan, not a required unlock schedule. Move at your pace and use what the game shows on your account.</p>
   <ol class="week">
     <li><strong>Day 1:</strong> Read the alliance rule and the current announcement. Find alliance chat and ask how the caller gives the go.</li>
@@ -280,8 +307,7 @@
 </section>
 
 <section id="mail-brief">
-  <p class="eyebrow">Ready to share</p>
-  <h2>Attack Day alliance mail</h2>
+  <div class="section-head"><svg class="h-icon" aria-hidden="true"><use href="#i-mail"/></svg><div><p class="eyebrow">Ready to share</p><h2>Attack Day alliance mail</h2></div></div>
   <p>Copy this into in-game mail. Fill in the caller and time before sending.</p>
   <label class="field-label" for="allianceMail">Message text</label>
   <textarea id="allianceMail" rows="7" readonly>VHU ATTACK DAY | Caller: [name or role] | Start: [Apocalypse Time]
@@ -294,13 +320,12 @@ If a friendly base is under attack, share the location and ETA in alliance chat.
 </section>
 
 <section id="field-guide">
-  <p class="eyebrow">VHU member training</p>
-  <h2>Field Guide</h2>
+  <div class="section-head"><svg class="h-icon" aria-hidden="true"><use href="#i-book"/></svg><div><p class="eyebrow">VHU member training</p><h2>Field Guide</h2></div></div>
   <p>New to VHU? Start here. These are alliance planning habits for Last Z: Survival Shooter on State 788, not game requirements.</p>
   <div class="guide-grid">
-    <article><span class="step" aria-hidden="true">01</span><h3>Get ready to join</h3><p>Read the alliance rule and the day’s in-game announcement. Ask who is calling, what the group is doing, and where to wait. If you’re new to rallying, join a caller-led group before leading one.</p><a href="#rule">Read the alliance rule</a></article>
-    <article><span class="step" aria-hidden="true">02</span><h3>Share a useful scout report</h3><p>Keep it in alliance chat: target location, what the scout report actually shows, and what you couldn’t verify. A strong-looking target is not permission to attack. If its farming status is unclear, hold and ask.</p><a href="#attack">Open the Attack Day checklist</a></article>
-    <article><span class="step" aria-hidden="true">03</span><h3>React to an incoming march</h3><p>The first person who sees it calls out who is threatened and the ETA shown, if available. The caller chooses whether to reinforce, shield, or counter. Tell the group when conditions change; don’t send everyone off on separate plans.</p><a href="#tanks">Review the Tanks play</a></article>
+    <article><span class="step" aria-hidden="true">01</span><h3>Get ready to join</h3><p>Read the alliance rule and the day’s in-game announcement. Ask who is calling, what the group is doing, and where to wait. If you’re new to rallying, join a caller-led group before leading one.</p><a class="card-link" href="#rule">Read the alliance rule</a></article>
+    <article><span class="step" aria-hidden="true">02</span><h3>Share a useful scout report</h3><p>Keep it in alliance chat: target location, what the scout report actually shows, and what you couldn’t verify. A strong-looking target is not permission to attack. If its farming status is unclear, hold and ask.</p><a class="card-link" href="#attack">Open the Attack Day checklist</a></article>
+    <article><span class="step" aria-hidden="true">03</span><h3>React to an incoming march</h3><p>The first person who sees it calls out who is threatened and the ETA shown, if available. The caller chooses whether to reinforce, shield, or counter. Tell the group when conditions change; don’t send everyone off on separate plans.</p><a class="card-link" href="#tanks">Review the Tanks play</a></article>
   </div>
   <h3>Rally decision path</h3>
   <ol class="route"><li><strong>01 Scout</strong>Check the target.</li><li><strong>02 Confirm</strong>Apply the VHU rule. If unsure, hold.</li><li><strong>03 Call</strong>Wait for one caller to give the go.</li><li><strong>04 Review</strong>Report what the result actually showed.</li></ol>
@@ -308,8 +333,7 @@ If a friendly base is under attack, share the location and ETA in alliance chat.
 </section>
 
 <section id="season-two">
-  <p class="eyebrow">State 788 season prep</p>
-  <h2>Season 2 Launch Kit</h2>
+  <div class="section-head"><svg class="h-icon" aria-hidden="true"><use href="#i-star"/></svg><div><p class="eyebrow">State 788 season prep</p><h2>Season 2 Launch Kit</h2></div></div>
   <p class="rule">Season 2 starts at <strong>00:00 Apocalypse Time</strong> (in-game reset).</p>
   <p>Open your in-game season panel for the launch countdown, map theme, and first objective. The season number alone does not tell you which map, resources, or unlocks your state will get.</p>
   <div class="guide-grid">
@@ -322,12 +346,11 @@ If a friendly base is under attack, share the location and ETA in alliance chat.
 </section>
 
 <section id="event-desk">
-  <p class="eyebrow">Check before committing</p>
-  <h2>Event Desk</h2>
+  <div class="section-head"><svg class="h-icon" aria-hidden="true"><use href="#i-clipboard"/></svg><div><p class="eyebrow">Check before committing</p><h2>Event Desk</h2></div></div>
   <p>Use the event screen on State 788 for the current terms. Before the alliance spends items or sends marches, have one person read the live rules and post the plan in alliance chat.</p>
   <div class="guide-grid">
-    <article><span class="step" aria-hidden="true">01</span><h3>Alliance Duel</h3><p>Read today’s scoring actions and the reset countdown. Save optional items for a scoring window you can actually make. Before combat, verify the opponent, points, and travel rules shown for the current round.</p><a href="#saturday">See the VHU combat-day plan</a></article>
-    <article><span class="step" aria-hidden="true">02</span><h3>Volcano War</h3><p>Check if the event is available on your state, then verify entry requirements, battle window, rewards, and zone restrictions. Assign an objective and a backup before you send anyone in.</p><a href="#volcano">See the Volcano War brief</a></article>
+    <article><span class="step" aria-hidden="true">01</span><h3>Alliance Duel</h3><p>Read today’s scoring actions and the reset countdown. Save optional items for a scoring window you can actually make. Before combat, verify the opponent, points, and travel rules shown for the current round.</p><a class="card-link" href="#saturday">See the VHU combat-day plan</a></article>
+    <article><span class="step" aria-hidden="true">02</span><h3>Volcano War</h3><p>Check if the event is available on your state, then verify entry requirements, battle window, rewards, and zone restrictions. Assign an objective and a backup before you send anyone in.</p><a class="card-link" href="#volcano">See the Volcano War brief</a></article>
     <article><span class="step" aria-hidden="true">03</span><h3>Post one clear brief</h3><p>Include the exact event name, start time in the game’s clock, countdown, caller, and one objective. Recheck the countdown just before launch. Don’t use a fixed local-time conversion copied from a previous event.</p></article>
   </div>
   <details><summary>Example: read the calendar before spending</summary><p>In a sample in-game calendar, the listed theme changed between time slots and between days. Before spending recruit tickets or hero experience, check the active time slot and open its point rules. A theme name alone doesn’t tell you which actions score. Use today’s screen, not a screenshot from an earlier round.</p></details>
@@ -335,7 +358,7 @@ If a friendly base is under attack, share the location and ETA in alliance chat.
 </section>
 
 <section id="job">
-  <h2>Our Job</h2>
+  <div class="section-head"><svg class="h-icon" aria-hidden="true"><use href="#i-target"/></svg><h2>Our Job</h2></div>
   <p>VHU was made to <strong>have fun, grow, and take the fight to others</strong>. We attack enemy HQs and the <strong>"Tanks"</strong> (enemy marches that come out of their HQs to attack us).</p>
   <div class="grid">
     <div class="box"><h3>Fun</h3><p>Play together, help each other, laugh a lot.</p></div>
@@ -345,7 +368,7 @@ If a friendly base is under attack, share the location and ETA in alliance chat.
 </section>
 
 <section id="attack">
-  <h2>Attack Day Checklist</h2>
+  <div class="section-head"><svg class="h-icon" aria-hidden="true"><use href="#i-sword"/></svg><h2>Attack Day Checklist</h2></div>
   <p class="note">Tap a box to check it off. Your checks only save on your own phone.</p>
 
   <h3>Before the hit</h3>
@@ -379,7 +402,7 @@ If a friendly base is under attack, share the location and ETA in alliance chat.
 </section>
 
 <section id="tanks">
-  <h2>Handling "Tanks"</h2>
+  <div class="section-head"><svg class="h-icon" aria-hidden="true"><use href="#i-shield-alert"/></svg><h2>Handling "Tanks"</h2></div>
   <p>Tanks are enemy marches that come out of HQs to attack us. They are our biggest danger and our best chance.</p>
   <ul>
     <li><strong>Call it out fast.</strong> Post who is being hit, where, and how many troops are coming.</li>
@@ -393,7 +416,7 @@ If a friendly base is under attack, share the location and ETA in alliance chat.
 </section>
 
 <section id="peace">
-  <h2>Peace Day</h2>
+  <div class="section-head"><svg class="h-icon" aria-hidden="true"><use href="#i-leaf"/></svg><h2>Peace Day</h2></div>
   <p class="rule">Do not attack anyone. Only plunder your selected server.</p>
   <ul>
     <li>Heal your troops and refill your hospital space.</li>
@@ -405,7 +428,7 @@ If a friendly base is under attack, share the location and ETA in alliance chat.
 </section>
 
 <section id="saturday">
-  <h2>Saturday Combat Plan</h2>
+  <div class="section-head"><svg class="h-icon" aria-hidden="true"><use href="#i-calendar-check"/></svg><h2>Saturday Combat Plan</h2></div>
   <p>Use this VHU plan when the Alliance Duel shows a Saturday combat round. Confirm the day, eligible actions, points, and teleport rules on the current event screen.</p>
   <ul>
     <li>Everyone online, rested, and healed before the day starts.</li>
@@ -416,7 +439,7 @@ If a friendly base is under attack, share the location and ETA in alliance chat.
 </section>
 
 <section id="volcano">
-  <h2>Volcano War</h2>
+  <div class="section-head"><svg class="h-icon" aria-hidden="true"><use href="#i-volcano"/></svg><h2>Volcano War</h2></div>
   <p class="rule">Don’t commit a march until the caller confirms your entry window and objective.</p>
   <ul>
     <li><strong>Before:</strong> Verify the battle date, game-clock start, duration, and entry rules on the active event card.</li>
@@ -427,7 +450,7 @@ If a friendly base is under attack, share the location and ETA in alliance chat.
 </section>
 
 <section id="readiness">
-  <p class="eyebrow">Before spending or sending</p><h2>Heroes, Resources and Shields</h2>
+  <div class="section-head"><svg class="h-icon" aria-hidden="true"><use href="#i-heart"/></svg><div><p class="eyebrow">Before spending or sending</p><h2>Heroes, Resources and Shields</h2></div></div>
   <div class="guide-grid">
     <article><h3>Heroes and formations</h3><p>Pick a team for a specific job: your first rally, defense, or general progression. Check the formation screen for faction bonuses and skill text. Change one thing at a time and compare in-game reports before spending rare materials.</p><p><span class="test">VERIFY</span> For faction counters, use the matchup information shown by the current game before a fight. Don’t assume a faction matchup outweighs every other detail in a report.</p></article>
     <article><h3>Resources and upgrades</h3><p>Write down what your next upgrade needs. Check what you already have and what the game says is protected before opening extra packs. If you’re saving for a Duel, read the active scoring rules before committing items.</p></article>
@@ -436,14 +459,14 @@ If a friendly base is under attack, share the location and ETA in alliance chat.
 </section>
 
 <section id="reference">
-  <p class="eyebrow">Keep it handy</p><h2>Glossary and Lessons</h2>
+  <div class="section-head"><svg class="h-icon" aria-hidden="true"><use href="#i-list"/></svg><div><p class="eyebrow">Keep it handy</p><h2>Glossary and Lessons</h2></div></div>
   <dl class="glossary"><div><dt>HQ</dt><dd>Your headquarters or home base.</dd></div><div><dt>Rally</dt><dd>A coordinated group attack started by one player.</dd></div><div><dt>Scout</dt><dd>Check a target in-game before acting.</dd></div><div><dt>Plunder</dt><dd>Take resources through an in-game action. Follow the current event and VHU rules.</dd></div><div><dt>Farm</dt><dd>VHU shorthand here for repeatedly attacking for resources.</dd></div><div><dt>Tanks</dt><dd>VHU shorthand here for enemy marches leaving an HQ to attack, not a unit classification.</dd></div><div><dt>F1</dt><dd>First formation in this playbook. Confirm which team you have in that slot.</dd></div><div><dt>Caller</dt><dd>The person coordinating the group’s next move.</dd></div></dl>
   <details><summary>What belongs in the Lessons Learned log?</summary><p>A confirmed in-game lesson should name the game mode, what was tried, what the report showed, and what to repeat next time. Leave names, coordinates, member stats and screenshots with private details out of public notes.</p><p>Keep an untested claim in the test queue and label opinions as ideas. No new tests have been logged here.</p></details>
   <details><summary>What if a rule on this page differs from my event screen?</summary><p>Use your active game screen for mechanics and timing. Follow the VHU rule for who the alliance may attack. If either is unclear, hold and ask the caller.</p></details>
 </section>
 
 <section id="grow">
-  <h2>Grow the Alliance</h2>
+  <div class="section-head"><svg class="h-icon" aria-hidden="true"><use href="#i-trend"/></svg><h2>Grow the Alliance</h2></div>
   <ul>
     <li>We want to fill the alliance. Join rule: <strong>HQ Level 20+</strong>.</li>
     <li>Invite friends who play and are active. We are English speaking and based on State 788.</li>
@@ -453,7 +476,7 @@ If a friendly base is under attack, share the location and ETA in alliance chat.
 </section>
 
 <section id="feedback">
-  <h2>Suggest an improvement</h2>
+  <div class="section-head"><svg class="h-icon" aria-hidden="true"><use href="#i-chat"/></svg><h2>Suggest an improvement</h2></div>
   <p>Found a rule that changed or a tip that needs a test? Use the feedback form to send a suggestion for review. This playbook does not display submissions.</p>
   <p class="note">Include the screen or mode, what happened, and what you’d change. Leave out player names, coordinates, and account details.</p>
   <a class="btn" id="formBtn" hidden>Open the feedback form</a>
