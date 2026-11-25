@@ -132,7 +132,7 @@
   @media print{
     @page{margin:15mm}
     body{background:white;color:black;font:11pt/1.3 system-ui,sans-serif}
-    body>header,body>nav,body>footer,.skip,main>section:not(#attack),.reset,.print-button{display:none!important}
+    body>header,body>nav,body>footer,.skip,.attack-fab,main>section:not(#attack),.reset,.print-button{display:none!important}
     main,#attack{padding:0;margin:0;border:0;background:white;max-width:none}
     #attack h2,#attack h3,#attack .note{color:black}
     .check label{background:white!important;color:black;border:0;min-height:0;padding:.2rem 0}
@@ -164,6 +164,16 @@
   .h-icon{width:1.65rem;height:1.65rem;flex:none;margin-top:.2rem;color:var(--accent);
     fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
   .card-link{display:inline-flex;align-items:center;min-height:44px;font-weight:650}
+
+  .attack-fab{position:fixed;right:1rem;bottom:1rem;bottom:max(1rem,env(safe-area-inset-bottom));z-index:6;
+    display:inline-flex;align-items:center;gap:.4rem;min-height:44px;padding:.65rem 1.05rem;border-radius:99px;
+    background:var(--accent);color:#230b14;text-decoration:none;font-weight:750;font-size:.92rem;
+    box-shadow:0 10px 22px #090911a8;border:1px solid #ffb9bb}
+  .attack-fab:hover{background:#ffa3ad}
+  .attack-fab svg{width:1.05rem;height:1.05rem;flex:none;fill:none;stroke:currentColor;stroke-width:2.2;
+    stroke-linecap:round;stroke-linejoin:round}
+  .attack-fab.is-hidden{display:none}
+  @media(max-width:26rem){.attack-fab{right:.7rem;bottom:.7rem;padding:.6rem .85rem;font-size:.86rem}}
 </style>
 </head>
 <body>
@@ -246,6 +256,11 @@
   <a href="#grow">Grow</a>
   <a href="#feedback">Suggestions</a>
 </nav>
+
+<a class="attack-fab" id="attackFab" href="#attack">
+  <svg aria-hidden="true"><use href="#i-sword"/></svg>
+  Attack Day
+</a>
 
 <main id="main" tabindex="-1">
 
@@ -541,6 +556,19 @@ If a friendly base is under attack, share the location and ETA in alliance chat.
   });
 
   document.getElementById("printChecklist").addEventListener("click", function(){ window.print(); });
+
+  /* Hide the floating Attack Day button while that section is already on screen */
+  (function(){
+    var fab = document.getElementById("attackFab");
+    var target = document.getElementById("attack");
+    if (!fab || !target || !("IntersectionObserver" in window)) return;
+    try {
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){ fab.classList.toggle("is-hidden", entry.isIntersecting); });
+      }, { rootMargin: "-40% 0px -40% 0px" });
+      io.observe(target);
+    } catch(e){}
+  })();
 
   /* Save checkbox state on this phone only */
   (function(){
