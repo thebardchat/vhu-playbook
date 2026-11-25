@@ -428,9 +428,9 @@ If a friendly base is under attack, share the location and ETA in alliance chat.
 
 <section id="feedback">
   <h2>Suggest an improvement</h2>
-  <p>Found a rule that changed or a tip that needs a test? Send it to the playbook owner for review. Suggestions won’t appear on this site.</p>
+  <p>Found a rule that changed or a tip that needs a test? Use the feedback form to send a suggestion for review. This playbook does not display submissions.</p>
   <p class="note">Include the screen or mode, what happened, and what you’d change. Leave out player names, coordinates, and account details.</p>
-  <a class="btn" id="formBtn" hidden>Send a private suggestion</a>
+  <a class="btn" id="formBtn" hidden>Open the feedback form</a>
   <p class="note" id="feedbackStatus">Private submissions aren’t enabled yet. There’s nowhere to send a suggestion from this page right now.</p>
 </section>
 
@@ -445,7 +445,7 @@ If a friendly base is under attack, share the location and ETA in alliance chat.
   /* Owner setup: use only the responder link to a form owned by the playbook owner.
      Keep public response summaries off and give nobody else access to responses.
      FORM_EMBED and DISCUSSIONS are retained for old configs but not displayed. */
-  var FORM_LINK   = "";
+  var FORM_LINK   = "https://forms.gle/uQ73kofPwcuHQ89i7";
   var FORM_EMBED  = "";
   var DISCUSSIONS = "";
 
@@ -458,7 +458,7 @@ If a friendly base is under attack, share the location and ETA in alliance chat.
       if (url.protocol !== "https:" || url.username || url.password || url.port || (!shortForm && !directForm)) return;
       var f = document.getElementById("formBtn");
       f.href = url.href; f.target = "_blank"; f.rel = "noopener noreferrer"; f.hidden = false;
-      document.getElementById("feedbackStatus").textContent = "The form opens in a new tab and sends your suggestion to the owner for review.";
+      document.getElementById("feedbackStatus").textContent = "Opens the VHU Gameplay Feedback form in a new tab. You can leave the name and email fields blank.";
     } catch(e){}
   })();
 
