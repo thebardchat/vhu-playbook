@@ -188,6 +188,9 @@
   #job .box{position:relative;border-top:3px solid #b97065;padding:.85rem 3.6rem .85rem .95rem}
   #job .box .c-icon{top:.7rem;right:.7rem}
   #job .box h3{margin-bottom:.25rem}
+  .counter-art{margin:.9rem auto;max-width:22rem;text-align:center}
+  .counter-art svg{display:block;width:100%;height:auto}
+  .counter-art figcaption{margin-top:.3rem}
   .card-link{margin-top:.1rem}
   .card-link::after{content:" →";margin-left:.3rem}
 
@@ -578,6 +581,32 @@ We are stronger when we work together.</textarea>
   <div class="section-head"><svg class="h-icon" aria-hidden="true"><use href="#i-heart"/></svg><div><p class="eyebrow">Before spending or sending</p><h2>Heroes, Resources and Shields</h2></div></div>
   <div class="guide-grid">
     <article><svg class="c-icon" aria-hidden="true"><use href="#i-users"/></svg><h3>Heroes and formations</h3><p>Pick a team for a specific job: your first rally, defense, or general progression. Check the formation screen for faction bonuses and skill text. Change one thing at a time and compare in-game reports before spending rare materials.</p>
+      <figure class="counter-art">
+        <svg viewBox="0 0 360 290" role="img" aria-labelledby="ctr-title ctr-desc">
+          <title id="ctr-title">Faction counter triangle</title>
+          <desc id="ctr-desc">Wings beat Blood Rose. Blood Rose beats Guard of Order. Guard of Order beats Wings.</desc>
+          <defs>
+            <marker id="ctr-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0l10 5-10 5z" fill="#ff4d5e"/></marker>
+          </defs>
+          <g fill="none" stroke="#ff4d5e" stroke-width="3.5" stroke-linecap="round" marker-end="url(#ctr-arrow)">
+            <path d="M206 97L282 203"/>
+            <path d="M262 240H98"/>
+            <path d="M78 203L154 97"/>
+          </g>
+          <g fill="#ffd397" font-family="ui-monospace,monospace" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="1">
+            <text x="180" y="170">BEATS</text>
+          </g>
+          <g fill="#2a1820" stroke="#ffd397" stroke-width="2.5">
+            <circle cx="180" cy="58" r="44"/><circle cx="310" cy="238" r="44"/><circle cx="50" cy="238" r="44"/>
+          </g>
+          <g fill="#fff4e0" font-family="system-ui,sans-serif" font-size="16" font-weight="700" text-anchor="middle">
+            <text x="180" y="64">Wings</text>
+            <text x="310" y="237">Blood</text><text x="310" y="256">Rose</text>
+            <text x="50" y="237">Guard of</text><text x="50" y="256">Order</text>
+          </g>
+        </svg>
+        <figcaption class="note">Each arrow points to the faction that loses. Check the in-game matchup before a fight.</figcaption>
+      </figure>
       <div class="table-wrap"><table>
         <thead><tr><th>Faction</th><th>Beats</th></tr></thead>
         <tbody>
