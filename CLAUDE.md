@@ -1,7 +1,7 @@
-# CLAUDE.md — VHU VampireHunters Playbook Site
+# CLAUDE.md — VHDU VampireHunters Playbook Site
 
 ## What this is
-A public GitHub Pages site for the **<VHU> VampireHunters** alliance in *Last Z: Survival Shooter*, State 788. Alliance members read it on their phones. It holds the alliance rule, attack and defense checklists, event plans, and a place for members to leave notes and ideas.
+A public GitHub Pages site for the **<VHDU> VampireHunters** alliance in *Last Z: Survival Shooter*, State 788. Alliance members read it on their phones. It holds the alliance rule, attack and defense checklists, event plans, and a place for members to leave notes and ideas.
 
 Owner: Shane (GitHub: thebardchat, in-game name thebardchat). Alliance leader: INVICTUS Beard.
 Goal: help every member play better, ethically and legally, and help Shane teach other players.

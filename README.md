@@ -1,6 +1,6 @@
-# VHU VampireHunters Alliance Playbook
+# VHDU VampireHunters Alliance Playbook
 
-Static, phone-first reference for the VHU VampireHunters alliance in Last Z: Survival Shooter, State 788.
+Static, phone-first reference for the VHDU VampireHunters alliance in Last Z: Survival Shooter, State 788.
 
 https://thebardchat.github.io/vhu-playbook/
 
