@@ -95,11 +95,17 @@
   .hero{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.04fr);gap:clamp(1.2rem,4vw,3.1rem);align-items:center;max-width:72rem;margin:auto}
   .eyebrow{margin:0 0 .8rem!important;font:700 .76rem/1.35 ui-monospace,monospace;letter-spacing:.16em;color:var(--gold)!important;text-transform:uppercase}
   header h1{font-size:clamp(2.1rem,6vw,4.65rem);letter-spacing:-.058em;text-wrap:initial;margin:0;overflow-wrap:normal}
-  .hero h1 span{display:block;position:relative;font-size:.43em;letter-spacing:.13em;margin-bottom:.14em;padding-bottom:.4em}
-  .hero h1 span::before,.hero h1 span::after{content:"";position:absolute;top:100%;width:.3em;height:.42em;
-    opacity:.85;background:var(--accent);clip-path:polygon(0 0,100% 0,50% 100%)}
-  .hero h1 span::before{left:.58em}
-  .hero h1 span::after{left:.98em}
+  .logo{display:flex;align-items:center;gap:clamp(.8rem,2.4vw,1.3rem);margin:0 0 .9rem}
+  .emblem{width:clamp(4.2rem,11vw,5.6rem);height:auto;flex:none;filter:drop-shadow(0 4px 14px #ff4d5e55)}
+  .logo .eyebrow{margin:0!important}
+  .hero h1 span{display:block;font-size:.43em;letter-spacing:.13em;color:#ff4d5e;margin-bottom:.1em}
+  .hero h1 em{display:block;font-style:normal;color:var(--text);
+    background:linear-gradient(180deg,#fff4e0 25%,#ffd397 100%);-webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;padding-bottom:.08em}
+  .wordmark-rule{display:flex;align-items:center;gap:.6rem;margin:.55rem 0 0;max-width:30rem}
+  .wordmark-rule::before,.wordmark-rule::after{content:"";height:2px;flex:1;background:linear-gradient(90deg,#ff4d5e,#ffd39700)}
+  .wordmark-rule::before{background:linear-gradient(90deg,#ffd39700,#ff4d5e)}
+  .wordmark-rule svg{width:2.4rem;height:auto;fill:#ffd397;flex:none}
   .hero p{max-width:34rem;text-wrap:initial}
   .hero .lede{margin-top:1rem;font-size:clamp(1rem,2vw,1.24rem)}
   .hero .tag{margin:.5rem 0;color:var(--gold);border-color:#916747}
@@ -219,8 +225,18 @@
   </svg>
   <div class="hero">
     <div>
-      <p class="eyebrow">Last Z: Survival Shooter / State 788</p>
-      <h1><span>&lt;VHU&gt;</span>VampireHunters</h1>
+      <div class="logo">
+        <svg class="emblem" viewBox="0 0 96 96" role="img" aria-label="VHU emblem: crescent moon with fangs">
+          <circle cx="48" cy="48" r="44" fill="#1c1017" stroke="#ffd397" stroke-width="2.5"/>
+          <circle cx="48" cy="48" r="38" fill="none" stroke="#ff4d5e" stroke-width="1" stroke-dasharray="2 4"/>
+          <circle cx="44" cy="43" r="25" fill="#ffd397"/>
+          <circle cx="55" cy="36" r="22" fill="#1c1017"/>
+          <path d="M33 66L42 66L37.500 83ZM54 66L63 66L58.500 83Z" fill="#fff4e0" stroke="#ff4d5e" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <p class="eyebrow">Last Z: Survival Shooter / State 788</p>
+      </div>
+      <h1><span>&lt;VHU&gt;</span><em>VampireHunters</em></h1>
+      <div class="wordmark-rule" aria-hidden="true"><svg viewBox="-44 -22 88 48"><use href="#bat"/></svg></div>
       <p class="lede">The alliance playbook for scouting, rallying and getting ready for the next event.</p>
       <p><span class="tag">VHU join rule: HQ Level 20+</span></p>
       <div class="actions"><a class="btn" href="#season-two">Get ready for Season 2</a><a class="btn alt" href="#mail-brief">Get alliance mail</a></div>
@@ -518,7 +534,7 @@ If a friendly base is under attack, share the location and ETA in alliance chat.
 
 <footer>
   <p>&lt;VHU&gt; VampireHunters • State 788 • This is a fan-made alliance guide, not an official game site.</p>
-  <p>Last updated: <span id="updated">Nov 25, 2026</span></p>
+  <p>Last updated: <span id="updated">Nov 26, 2026</span></p>
 </footer>
 
 <script>
