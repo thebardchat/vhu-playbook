@@ -2,6 +2,9 @@
 
 Static, phone-first reference for the VHU VampireHunters alliance in Last Z: Survival Shooter, State 788.
 
+https://thebardchat.github.io/vhu-playbook/
+
+
 ## Preview
 
 Download and open `index.html` in a browser. The page has no build step. Checklist progress stays in that browser; the alliance mail button copies text and does not send anything. Use the print button to print only the Attack Day checklist. The production GitHub Pages site is published from the root of `main`; a review branch does not change it.
