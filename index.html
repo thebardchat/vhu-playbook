@@ -155,7 +155,8 @@
   .brief-steps p{font-size:.95rem;margin:.12rem 0 0;color:var(--muted)}
   .field-label{display:block;font-weight:700;margin:.5rem 0 .2rem}
   textarea{display:block;width:100%;min-height:11rem;resize:vertical;background:var(--panel);border:1px solid var(--line);color:var(--text);padding:.75rem;border-radius:.55rem;font:inherit}
-  #mailCopyStatus{margin-left:.45rem}
+  #mailCopyStatus,#svsCopyStatus{margin-left:.45rem}
+  #svsMail{min-height:19rem}
  
   .farm-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start;gap:1rem}
   .farm-art{min-width:0;margin:0}.farm-art svg{display:block;width:100%;height:auto}
@@ -288,6 +289,7 @@
   <a href="#volcano">Volcano War</a>
   <a href="#grass-feeders">Grass Feeders</a>
   <a href="#mud-team">MUD Team</a>
+  <a href="#svs-mail">SVS Mail</a>
   <a href="#readiness">Readiness</a>
   <a href="#reference">Glossary</a>
   <a href="#grow">Grow</a>
@@ -533,6 +535,19 @@ If a friendly base is under attack, share the location and ETA in alliance chat.
   <p class="note"><span class="test">VERIFY</span> The caller says who is on the MUD, which objectives to hold, and who keeps the flag. Check the current SVS rules on your in-game screen.</p>
 </section>
 
+<section id="svs-mail">
+  <div class="section-head"><svg class="h-icon" aria-hidden="true"><use href="#i-mail"/></svg><div><p class="eyebrow">Ready to share</p><h2>SVS alliance mail</h2></div></div>
+  <p>Copy this into in-game mail. Fill in the caller and time before sending.</p>
+  <label class="field-label" for="svsMail">Message text</label>
+  <textarea id="svsMail" rows="7" readonly>VHDU SVS (Server vs Server) | Caller: [name or role] | Start: [Apocalypse Time]
+GRASS FEEDERS: Keep a shield up. Keep Auto Join on.
+MUD TEAM: Keep the flag. Hold the objectives. Fight in the mud around the capital.
+EVERYONE: Know the plan. Stick to the plan. Follow the caller.
+We are stronger when we work together.</textarea>
+  <button class="btn" id="copySvsMail" type="button">Copy SVS mail</button>
+  <span class="note" id="svsCopyStatus" role="status" aria-live="polite"></span>
+</section>
+
 <section id="readiness">
   <div class="section-head"><svg class="h-icon" aria-hidden="true"><use href="#i-heart"/></svg><div><p class="eyebrow">Before spending or sending</p><h2>Heroes, Resources and Shields</h2></div></div>
   <div class="guide-grid">
@@ -605,18 +620,22 @@ If a friendly base is under attack, share the location and ETA in alliance chat.
     } catch(e){}
   })();
 
-  document.getElementById("copyAllianceMail").addEventListener("click", async function(){
-    var field = document.getElementById("allianceMail");
-    var status = document.getElementById("mailCopyStatus");
-    try {
-      if (!navigator.clipboard) throw new Error("Clipboard unavailable");
-      await navigator.clipboard.writeText(field.value);
-      status.textContent = "Copied. Paste it into alliance mail.";
-    } catch(e) {
-      field.focus(); field.select();
-      status.textContent = "Text selected. Press Ctrl+C or use your phone’s Copy menu.";
-    }
-  });
+  function wireCopy(buttonId, fieldId, statusId){
+    document.getElementById(buttonId).addEventListener("click", async function(){
+      var field = document.getElementById(fieldId);
+      var status = document.getElementById(statusId);
+      try {
+        if (!navigator.clipboard) throw new Error("Clipboard unavailable");
+        await navigator.clipboard.writeText(field.value);
+        status.textContent = "Copied. Paste it into alliance mail.";
+      } catch(e) {
+        field.focus(); field.select();
+        status.textContent = "Text selected. Press Ctrl+C or use your phone’s Copy menu.";
+      }
+    });
+  }
+  wireCopy("copyAllianceMail", "allianceMail", "mailCopyStatus");
+  wireCopy("copySvsMail", "svsMail", "svsCopyStatus");
 
   document.getElementById("printChecklist").addEventListener("click", function(){ window.print(); });
 
